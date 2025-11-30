@@ -1,0 +1,34 @@
+import React from 'react'
+import { assets } from '../../assets/assets'
+
+const Footer = () => {
+  return (
+    <footer className='bg-gray-900 md:px-36 text-left w-full mt-10'>
+      <div className='flex flex-col md:flex-row items-start px-8 md:px-0 justify-center gap-10 md:gap-32 py-10 border-b border-orange-500/30'>
+
+        <div className='flex flex-col md:items-start items-center w-full'>
+          <img 
+              src={assets.logo_dark} 
+              alt="logo" 
+              className="h-12 w-auto ml-5" 
+          />
+          <p className='mt-6 text-center md:text-left text-sm text-white/80'>Your trusted partner in education</p>
+        </div>
+        <div>
+          <h2>Company</h2>
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">About Us01</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div></div>
+
+      </div>
+      <p className='py-4 text-center text-xs md:text-sm text-white/60'>Copyright 2025 © SLIATE Individual Project . All Right Reserved. </p>
+    </footer>
+  )
+}
+
+export default Footer
