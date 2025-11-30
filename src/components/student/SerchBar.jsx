@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { assets } from '../../assets/assets';
 
-const SerchBar = ({ data }) => {
-  const navigate = useNavigate();
-  const [input, setInput] = useState(data ? data : '');
+const SerchBar = ({ input, setInput, onSearch }) => {
 
-  const onSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/course-list/${input}`);
+    onSearch(input); // trigger search in parent
   }
 
   return (
     <div>
-      <form onSubmit={onSearch} className="max-w-xl w-full md:h-14 h-12 flex items-center bg-white border border-gray-500/20 rounded">
+      <form onSubmit={handleSubmit} className="max-w-xl w-full md:h-14 h-12 flex items-center bg-white border border-gray-500/20 rounded">
         <img src={assets.search_icon} alt="Search Icon" className="md:w-auto w-10 px-3" />
         <input
           onChange={e => setInput(e.target.value)}
@@ -27,7 +24,7 @@ const SerchBar = ({ data }) => {
         </button>
       </form>
     </div>
-  )
+  );
 }
 
 export default SerchBar;
