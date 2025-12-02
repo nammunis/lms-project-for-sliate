@@ -3,12 +3,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../../assets/assets'
 import { AppContext } from '../../context/AppContext'
 import { useParams } from 'react-router-dom'
+import YouTube from 'react-youtube'
+import Footer from '../../components/student/Footer'
 
 const Player = () => {
 
   const { enrolledCourses, calculateChapterTime } = useContext(AppContext)
   const { courseId } = useParams()
-
+  
   const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [playerData, setPlayerData] = useState(null)
@@ -80,10 +82,10 @@ const Player = () => {
                       {chapter.chapterContent?.map((lecture, i) => (
                         <li key={i} className='flex items-start gap-2 py-1'>
                           <img
-  src={false ? assets.blue_tick_icon : assets.play_icon}
-  alt='Play'
-  className='w-4 h-4 mt-1'
-/>
+                            src={false ? assets.blue_tick_icon : assets.play_icon}
+                            alt='Play'
+                            className='w-4 h-4 mt-1'
+                          />
 
 
                           <div className='flex items-center justify-between w-full text-gray-800 text-xs md:text-default'>
@@ -122,11 +124,33 @@ const Player = () => {
                 </div>
               ))}
           </div>
+          <div className='flex item-center gap-2 py-3 mt-10'>
+            <h1 className='text-xl font-bold'>Rate This Course:</h1>
+          </div>
         </div>
 
         {/* Right Column */}
-        <div></div>
+        <div className='md:mt-10'>
+          {playerData?(
+            <div>
+              <YouTube videoId={playerData.lectureUrl.split('/').pop()}  iframeClassName='w-full aspect-video'/>
+              <div className='flex justify-between items-center mt-1'>
+                <p>{playerData.chapter}.{playerData.lecture} {playerData.lectureTitle}</p>
+                <button className='text-orange-600'>{false? 'completed': 'Mark Complete' }</button>
+              </div>
+
+            </div>
+          ):
+          <img src={courseData ? courseData.courseThumbnail: ''} alt="Thumbnail" />
+          
+        }
+          
+
+
+
+        </div>
       </div>
+      <Footer/>
     </>
   )
 }
