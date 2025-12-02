@@ -5,6 +5,7 @@ import { AppContext } from '../../context/AppContext'
 import { useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
 import Footer from '../../components/student/Footer'
+import Rating from '../../components/student/Rating'
 
 const Player = () => {
 
@@ -126,6 +127,7 @@ const Player = () => {
           </div>
           <div className='flex item-center gap-2 py-3 mt-10'>
             <h1 className='text-xl font-bold'>Rate This Course:</h1>
+            <Rating initialRating={0} />
           </div>
         </div>
 
