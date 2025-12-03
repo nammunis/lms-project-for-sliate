@@ -7,6 +7,7 @@ import YouTube from 'react-youtube'
 import Footer from '../../components/student/Footer'
 import Rating from '../../components/student/Rating'
 
+
 const Player = () => {
 
   const { enrolledCourses, calculateChapterTime } = useContext(AppContext)
