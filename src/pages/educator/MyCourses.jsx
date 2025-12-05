@@ -42,7 +42,8 @@ const MyCourses = () => {
                   </td>
 
                   <td className='px-4 py-3'>
-                    {currency}
+                    {currency} {" "}
+                    
                     {Math.floor(
                       course.enrolledStudents.length *
                       (course.coursePrice - (course.discount * course.coursePrice) / 100)

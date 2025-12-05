@@ -48,7 +48,7 @@ const Dashboard = () => {
             <img src={assets.patients_icon} alt="User" />
             <div>
               <p className='text-2xl font-medium text-gray-600'>
-                {currency}{dashbordData.totalEarnings}
+                {currency}{" "}{dashbordData.totalEarnings}
               </p>
               <p className='text-base text-gray-500'>Total Earnings</p>
             </div>
